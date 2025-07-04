@@ -1,0 +1,25 @@
+{
+  "name": "image-resizer",
+  "version": "1.0.0",
+  "description": "A TypeScript image processing tool that resizes images to multiple dimensions",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "clean": "rimraf dist"
+  },
+  "keywords": ["image", "resize", "typescript", "processing"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "rimraf": "^5.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "sharp": "^0.33.0",
+    "exifr": "^7.1.3"
+  }
+}
