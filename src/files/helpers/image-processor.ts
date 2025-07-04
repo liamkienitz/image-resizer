@@ -51,7 +51,9 @@ async function prepareImageSource(inputPath: string): Promise<{
   if (isHeicFile) {
     try {
       tempBuffer = await convertHeicToJpeg(inputPath);
-      console.log(`  → Converted HEIC to JPEG buffer for processing`);
+      console.log(
+        `  → Converted HEIC to JPEG buffer for processing for ${inputPath}`
+      );
     } catch (heicError) {
       console.warn(
         `  → HEIC conversion failed, trying Sharp directly:`,

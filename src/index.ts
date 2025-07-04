@@ -43,12 +43,19 @@ async function main(): Promise<void> {
 
     console.log(`Found ${imageFiles.length} image(s) to process\n`);
 
-    // Process each image
-    const results: ProcessingResult[] = [];
-    for (const imagePath of imageFiles) {
-      const result = await repo.processImage(imagePath, timestampedOutputDir);
-      results.push(result);
-    }
+    // Process all images concurrently
+    console.log("🚀 Starting processing...\n");
+    const startTime = Date.now();
+
+    const processingPromises = imageFiles.map((imagePath) =>
+      repo.processImage(imagePath, timestampedOutputDir)
+    );
+
+    const results = await Promise.all(processingPromises);
+
+    const endTime = Date.now();
+    const processingTime = ((endTime - startTime) / 1000).toFixed(2);
+    console.log(`\n✨ All images processed in ${processingTime}s!`);
 
     // Summary
     const successful = results.filter((r) => r.success).length;
