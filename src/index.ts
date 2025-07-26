@@ -1,6 +1,5 @@
 import * as path from "path";
 import { CONFIG } from "./config";
-import { ProcessingResult } from "./files/types";
 import { ImageResizerRepo } from "./files/repo";
 
 async function main(): Promise<void> {
